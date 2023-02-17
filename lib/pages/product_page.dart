@@ -15,6 +15,18 @@ class _ProductPageState extends State<ProductPage> {
     'assets/icon_shoes.png'
   ];
 
+  List familiarShoes = [
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+    'assets/icon_shoes.png',
+  ];
+
   int currentIndex = 0;
 
   @override
@@ -30,6 +42,21 @@ class _ProductPageState extends State<ProductPage> {
           borderRadius: BorderRadius.circular(10),
           color: currentIndex == index ? primaryColor : Color(0xffC4C4C4),
         ),
+      );
+    }
+
+    Widget familiarShoesCard(String imageUrl) {
+      return Container(
+        width: 54,
+        height: 54,
+        margin: EdgeInsets.only(
+          right: 16,
+        ),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imageUrl),
+            ),
+            borderRadius: BorderRadius.circular(6)),
       );
     }
 
@@ -97,6 +124,8 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     Widget content() {
+      int index = -1;
+
       return Container(
         margin: EdgeInsets.only(top: 17),
         width: double.infinity,
@@ -200,6 +229,88 @@ class _ProductPageState extends State<ProductPage> {
                       fontWeight: light,
                     ),
                     textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+            // NOTE: FAMILIAR SHOES
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(
+                top: defaultMargin,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: defaultMargin,
+                    ),
+                    child: Text(
+                      'Familiar Shoes',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: familiarShoes.map((image) {
+                        index++;
+                        return Container(
+                          margin: EdgeInsets.only(
+                            left: index == 0 ? defaultMargin : 0,
+                          ),
+                          child: familiarShoesCard(image),
+                        );
+                      }).toList(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            // NOTE: BUTTONS
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(defaultMargin),
+              child: Row(
+                children: [
+                  Container(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage(
+                        'assets/button_chat.png',
+                      ),
+                    )),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 54,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            backgroundColor: primaryColor),
+                        child: Text(
+                          'Add To Cart',
+                          style: primaryTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: semibold,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
