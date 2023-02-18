@@ -19,7 +19,9 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Widget cartButton() {
       return FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        },
         backgroundColor: secondaryColor,
         child: Image.asset(
           'assets/icon_cart.png',
@@ -50,7 +52,7 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(
                 icon: Container(
                   margin: EdgeInsets.only(
-                    top: 20, 
+                    top: 20,
                     bottom: 10,
                   ),
                   child: Image.asset(
@@ -64,7 +66,7 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(
                 icon: Container(
                   margin: EdgeInsets.only(
-                    top: 20, 
+                    top: 20,
                     bottom: 10,
                   ),
                   child: Image.asset(
@@ -78,7 +80,7 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(
                 icon: Container(
                   margin: EdgeInsets.only(
-                    top: 20, 
+                    top: 20,
                     bottom: 10,
                   ),
                   child: Image.asset(
@@ -92,7 +94,7 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(
                 icon: Container(
                   margin: EdgeInsets.only(
-                    top: 20, 
+                    top: 20,
                     bottom: 10,
                   ),
                   child: Image.asset(
