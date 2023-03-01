@@ -32,11 +32,11 @@ class ProductModel {
       name: json['name'],
       price: double.parse(json['price'].toString()),
       description: json['description'],
-      tags: json['tags'],
+      tags: json['tags'] ?? '',
       category: CategoryModel.fromJson(json['category']),
       createdAt: DateTime.parse(json['created_at']),
       updatedAt: DateTime.parse(json['updated_at']),
-      galleries: json['galleries'].map((gallery) => GalleryModel.fromJson(gallery)).toList(),
+      galleries: json['galleries'].map<GalleryModel>((gallery) => GalleryModel.fromJson(gallery)).toList(),
     );
   }
 
